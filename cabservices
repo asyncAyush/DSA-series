@@ -1,0 +1,31 @@
+let prompt = require('prompt-sync')()
+
+class Cabservice{
+    constructor(){
+        this.cartype = ""
+        this.bill = this.km = 0.0
+    }
+    accept(){
+       this.cartype = prompt("Enter a car type AC or Non-AC")
+       this.km = Number(prompt("Enter Km treveled "))
+    }
+    calculate(){
+        if(this.cartype == 'AC'){
+          if(this.km <= 5) this.bill=150
+          else this.bill = 150 + (this.km-5)*10
+        }else if(this.cartype == 'Non-AC'){
+           if(this.km <= 5) this.bill=120
+          else this.bill = 120 + (this.km-5)*8
+        }
+    }
+    display(){
+        console.log("Cartype: "+ this.cartype)
+         console.log("Km travelled: "+ this.km)
+          console.log("Bill: "+ this.bill)
+    }
+}
+
+let obj = new Cabservice()
+obj.accept()
+obj.calculate()
+obj.display()
